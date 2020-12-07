@@ -2,14 +2,19 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
+ 
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'livraria-lista',
     pathMatch: 'full'
+  },
+  {
+    path: 'livraria-lista',
+    loadChildren: () => import('./livraria-lista/livraria-lista.module').then( m => m.LivrariaListaPageModule)
+  },
+  {
+    path: 'livraria-imagens/:param',
+    loadChildren: () => import('./livraria-imagens/livraria-imagens.module').then( m => m.LivrariaImagensPageModule)
   },
 ];
 
